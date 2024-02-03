@@ -93,7 +93,6 @@ void Player::update()
 		Bullet* rightBullet = new Bullet(x, y + height, 1, 0, 10);
 		bullets.push_back(rightBullet);
 		getScene()->addGameObject(rightBullet);
-		rightBullet->start();
 
 		// Bullet from the left end
 		Bullet* leftBullet = new Bullet(x, y, 1, 0, 10);
@@ -105,6 +104,7 @@ void Player::update()
 		currentReloadTime = reloadTimeG;
 	}
 
+	// memory manage our bullets, when they go off the screen, delete them
 	for (int i = 0; i < bullets.size(); i++)
 	{
 		if (bullets[i]->getPositionX() > SCREEN_WIDTH)
@@ -128,4 +128,14 @@ void Player::update()
 void Player::draw()
 {
 	blit(texture, x, y);
+}
+
+int Player::getPositionX()
+{
+	return x;
+}
+
+int Player::getPositionY()
+{
+	return y;
 }

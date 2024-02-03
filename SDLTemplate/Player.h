@@ -21,6 +21,9 @@ public:
 	float getReloadTimeG() const { return reloadTimeG; }
 	void setReloadTimeG(float value) { reloadTimeG = value; }
 
+	int getPositionX();
+	int getPositionY();
+
 private:
 	SDL_Texture* texture;
 	Mix_Chunk* sound;
@@ -32,6 +35,7 @@ private:
 	int boost;
 	float reloadTimeF;
 	float reloadTimeG;
+	float reloadTime;
 	float currentReloadTime;
 	std::vector<Bullet*> bullets;
 };
